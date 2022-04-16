@@ -10,10 +10,8 @@ public interface ProviderService {
 
     List<Provider> retrieveProviders();
 
-    Provider createProvider();
+    List<Provider> createUpdateProvider(List<Provider> providers);
 
-    Provider updateProvider();
-
-    Boolean deleteProvider(Long id);
+    Boolean deleteProviders(List<Long> ids);
 
 }

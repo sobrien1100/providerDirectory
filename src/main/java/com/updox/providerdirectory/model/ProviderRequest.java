@@ -1,35 +1,26 @@
 package com.updox.providerdirectory.model;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-@Entity
-public class Provider {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="PROVIDER_ID")
-    private Long id;
-    @NotNull
-    @Column(name="FIRST_NAME")
+public class ProviderRequest implements Serializable {
+
+    @JsonProperty("first_name")
     private String firstName;
-    @NotNull
-    @Column(name="LAST_NAME")
+    @JsonProperty("last_name")
     private String lastName;
-    @NotNull
-    @Column(name="EMAIL_ADDRESS")
+    @JsonProperty("email_address")
     private String emailAddress;
-    @Column(name="SPECIALTY")
+    @JsonProperty("specialty")
     private String specialty;
-    @Column(name="PRACTICE_NAME")
+    @JsonProperty("practice_name")
     private String practiceName;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
